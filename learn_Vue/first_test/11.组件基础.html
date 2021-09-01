@@ -1,0 +1,76 @@
+<!-- 
+    为了能在模板中使用，这些组件必须先注册以便 Vue 能够识别。
+    这里有两种组件的注册类型：  全局注册   和   局部注册。
+        至此，我们的组件都只是通过 Vue.component 全局注册的
+        全局注册的组件可以用在其被注册之后的任何 (通过 new Vue) 新创建的 Vue 根实例，也包括其组件树中的所有子组件的模板中。
+
+
+ -->
+
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- v-on:one="one" 为自定义的事件名称和绑定名称 -->
+            <!-- title="title1:" 相当于给新的属性进行赋值 -->
+
+            <button-conter title="title1:" v-on:one="one"></button-conter> 
+            <h1>sdahfkashk</h1>
+
+            <!-- 组件可以复用 ，每个组件各自独立-->
+            <button-conter title="title2:" v-on:one="one"></button-conter>
+
+        </div>
+        
+    </body>
+    <script>
+        // button-conter 创建的新的组件名称，
+        Vue.component('button-conter',{
+            props:["title"],    //prop用来定义组建的 属性
+
+            // 一个组件的 data 选项必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝：
+            // 组件内的data负责组件模板中的变量
+            data:function(){
+
+                // 为何在大型项目中data需要使用return返回数据呢？
+                // 原因：不使用return包裹的数据会在项目的全局可见，会造成变量污染
+                // 使用return包裹后数据中变量只在当前组件中生效，不会影响其他组件。
+                return {
+                    count:0
+                }
+                
+            },
+
+            // 对于多个元素时，必须确定一个根节点
+            template:'<div><h1>123</h1><button v-on:click="funclick">{{title}}点击：{{count}}</button></div>',
+
+            // 这个方法负责模板中的方法
+            methods:{
+                funclick: function () {
+                    // this代表当前组件
+                    this.count++;
+                    // 触发的事件
+
+                    //   $emit 触发当前实例上的事件。附加参数都会传给监听器回调。
+                    // one 为事件名称和绑定名称（两个名称必须一致）
+                    //  $emit目的是将组件内部的值传递出去
+                    this.$emit('one',this.count);
+                }
+            }
+        });
+        var vm = new Vue({
+            el:"#app",
+            // vue实例中的data负责 body中的变量
+            data:{
+                
+            },
+            methods:{
+                one:function(e){
+                    console.log(e);
+                }
+            }
+        });
+    </script>
+</html>

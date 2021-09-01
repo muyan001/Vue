@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <myfirst myhead1="testTitile:"></myfirst>
+            <newtest newtitle="局部组件："></newtest>
+
+        </div>
+        
+    </body>
+    <script>
+        //  全局组件
+        Vue.component("myfirst",{
+            props:["myhead1"],
+            data:function(){
+                return {
+                    count : 0
+                }
+            },
+            template:'<button v-on:click="add()">{{myhead1}}点击{{count}}</button>',
+            methods:{
+                add:function(){
+                    this.count++;
+                }
+            }
+        });
+
+
+        var vm = new Vue({
+            el:"#app",
+            data:{
+
+
+            },
+            // 创建局部组件
+            components:{
+                newtest:{
+                    props:["newtitle"],
+                    data:function(){
+                        return{
+                            count:0
+                        }
+                    },
+                    template:'<button v-on:click="sub()">{{newtitle}}局部组件点击{{count}}</button>',
+                    methods:{
+                        sub:function(){
+                            this.count--;
+                        }
+                    }
+
+                }
+            }
+            
+        });
+
+    </script>
+</html>
