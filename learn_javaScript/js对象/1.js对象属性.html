@@ -1,0 +1,42 @@
+<!-- 
+    访问 JavaScript 属性
+        objectName.property           // person.age
+        objectName["property"]       // person["age"]
+        objectName[expression]       // x = "age"; person[x]
+
+    JavaScript for...in 循环
+        for (variable in object) {
+            要执行的代码
+        }
+
+
+    添加新属性
+        您可以通过简单的赋值，向已存在的对象添加新属性。
+        person.nationality = "English";
+
+    删除属性
+        delete 关键词从对象中删除属性：
+        var person = {firstName:"Bill", lastName:"Gates", age:62, eyeColor:"blue"};
+        delete person.age;   // 或 delete person["age"];
+ -->
+
+
+ <!-- for   in -->
+ <html>
+     <body>
+        <h1>JavaScript 对象属性</h1>
+        
+        <p id="demo"></p>
+
+        <script>
+            var txt = "";
+            var person = { fname: "Bill", lname: "Gates", age: 62 };
+            var x;
+            for (x in person){
+                txt += person[x] + " ";
+
+            }
+            document.getElementById("demo").innerHTML = txt;
+        </script>
+     </body>
+ </html>

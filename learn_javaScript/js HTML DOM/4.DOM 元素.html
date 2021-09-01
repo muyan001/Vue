@@ -1,0 +1,99 @@
+<!-- 
+    查找 HTML 元素
+        通过 id 查找 HTML 元素
+        通过标签名查找 HTML 元素
+        通过类名查找 HTML 元素
+        通过 CSS 选择器查找 HTML 元素
+        通过 HTML 对象集合查找 HTML 元素
+ -->
+
+ <!-- 通过 id 查找 HTML 元素 -->
+
+<html>
+
+<body>
+
+    <h1>通过 id 查找 HTML 元素</h1>
+
+    <p id="intro">Hello World!</p>
+
+    <p>本例演示 <b>getElementsById</b> 方法。</p>
+
+    <p id="demo"></p>
+
+    <script>
+        var myElement = document.getElementById("intro");
+        document.getElementById("demo").innerHTML =
+            "来自 intro 段落的文本是：" + myElement.innerHTML;
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- 通过标签名查找 HTML 元素 -->
+
+<html>
+    <body>
+        
+        <h1>通过标签名查找 HTML 元素</h1>
+        
+        <div id="main">
+            <p>DOM 很有用。</p>
+            <p>本例演示 <b>getElementsByTagName</b> 方法。</p>
+        </div>
+        
+        <p id="demo1"></p>
+
+        <script>
+            var x = document.getElementById("main");
+            var y = x.getElementsByTagName("p");
+            document.getElementById("demo1").innerHTML = '“main”中的第一段（索引 0）是：' + y[0].innerHTML;
+        </script>
+    </body>
+</html>
+
+<!-- 通过类名查找 HTML 元素 -->
+<html>
+    <body>
+        
+        <h1>通过类名查找 HTML 元素</h1>
+        
+        <p>Hello World!</p>
+        
+        <p class="intro">DOM 很有用。</p>
+        
+        <p class="intro">本例演示 <b>getElementsByClassName</b> 方法。</p>
+        
+        <p id="demo2"></p>
+
+        <script>
+            var x = document.getElementsByClassName("intro");
+            document.getElementById("demo2").innerHTML = x[0].innerHTML
+        </script>
+    </body>
+</html>
+
+<!-- 通过 CSS 选择器查找 HTML 元素 -->
+<html>
+    <body>
+        <h1>按查询选择器查找 HTML 元素</h1>
+        
+        <p>Hello World!</p>
+        
+        <p class="intro">DOM 很有用。</p>
+        
+        <p class="intro">本例演示 <b>querySelectorAll</b> 方法。</p>
+        
+        <p id="demo3"></p>
+
+        <script>
+            var x = document.querySelectorAll("p.intro");
+            document.getElementById("demo3").innerHTML = x[0].innerHTML;
+        </script>
+    </body>
+</html>
+
+
+

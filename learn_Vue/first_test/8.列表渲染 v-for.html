@@ -1,0 +1,43 @@
+<!-- 
+    为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 key attribute：
+    建议尽可能在使用 v-for 时提供 key attribute
+ -->
+
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <li v-for="(item,index) in items" v-bind:key="index">
+                    <!-- item是每个元素，index为每个元素对应的索引     为v-for 设置键 v-bind:key="index"-->
+                    {{index}}-{{item.message}}
+                </li>
+            </ul>
+            <ul>
+                <li v-for="(value,key) in object" v-bind:key="key">
+                    <!-- 这是对对象的循环,,key代表键，value代表值       为v-for 设置键 v-bind:key="key"-->
+                    {{key}}--{{value}}
+                </li>
+            </ul>
+        </div>
+        
+    </body>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                items:[
+                    {message:'Foo'},
+                    {message:"Bar"}
+                ],
+                object:{
+                    title:'How to do list',
+                    author:"Jane",
+                    date: "2021-08-31"
+                }
+            }
+        });
+    </script>
+</html>

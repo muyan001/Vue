@@ -1,0 +1,67 @@
+<!-- 
+    1.当一个 Vue 实例被创建时，它将 data 对象中的所有的 property 加入到 Vue 的响应式系统中。当这些 property 的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。
+
+    2.值得注意的是只有当实例被创建时就已经存在于 data 中的 property 才是响应式的。
+
+    3.也就是说如果你添加一个新的 property，vm.b = 'hi'，，那么对 b 的改动将不会触发任何视图的更新。
+
+
+    4.这里唯一的例外是使用 Object.freeze()，这会阻止修改现有的 property，也意味着响应系统无法再追踪变化。
+
+
+    5.除了数据 property，Vue 实例还暴露了一些有用的实例 property 与方法。它们都有前缀 $，以便与用户定义的 property 区分开来.
+
+
+
+ -->
+
+<html>
+    <head>
+        <script src="vue.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="app">
+            {{a}}
+        </div>
+        <script>
+            var data = {a:1};
+            var vm = new Vue({
+                el:"#app",
+                data : data
+            })
+
+            // data.a = "新的数值"; // 值被更新为最新的这个值   vm.a 也会被更新为这个值
+            /**
+             * vm.a == data.a // => true   这两个值是相等的
+            
+             **/
+            //  设置 property 也会影响到原始数据   
+            vm.a = "再次更改这个值！";
+            //vm.b = "b的值被更改";   // 不会触发视图更新
+            // console.log(data["a"])
+
+            console.log(vm.$data == data); // true
+            console.log(vm.$el == document.getElementById("app")); // true
+
+            // 实例方法
+            // $watch 是一个实例方法,监听在这个方法执行之后的相应的属性是否发生变化，发生变化时，执行回调函数
+
+            vm.$watch('a', function  (newValue, oldValue) {
+                // 这个回调将在 `vm.a` 改变后调用
+
+                console.log(newValue,oldValue);
+            });
+
+            // 改变a的值--这三种写法，完全一致
+            vm.$data.a = "123";
+
+            vm.a = "456";
+
+            data.a = "789";
+
+
+
+            
+        </script>
+    </body>
+</html>

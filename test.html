@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+
+    <input type="text" onkeyup="test(this.value)">
+    <div id="app">
+        <p>{{ message }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue.js!'
+            }
+        })
+        function test(str){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if (this.readyState == 4 && this.status == 200){
+                    document.getElementById("demo").innerHTML = xhttp.getResponseHeader();
+                }
+            };
+            xhttp.open("GET", "/demo/gethint.php?q=" + str, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>

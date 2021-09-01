@@ -1,0 +1,119 @@
+<html>
+    <body>
+        <h1>JavaScript 字符串属性</h1>
+        
+        <p>length 属性返回字符串的长度：</p>
+
+        <p id="demo"></p>
+
+        <script>
+            var txt = "shdfhkashkdfkashdfkak"
+            document.getElementById("demo").innerHTML = txt.length;
+        </script>
+    </body>
+</html>
+
+
+<!-- 
+
+
+    特殊字符
+
+    \ 转义字符
+
+    \b   退格键
+    \f   换页
+    \n  新行
+    \r  回车
+    \t  水平制表符
+    \v  垂直制表符
+    这六个转义字符最初设计用于控制打字机、电传打字机和传真机。它们在 HTML 中没有任何意义。
+
+
+
+
+
+
+    为了最佳可读性， 程序员们通常会避免每行代码超过 80 个字符串。
+
+    如果某条 JavaScript 语句不适合一整行，那么最佳换行位置是某个运算符之后：
+
+    document.getElementById("demo").innerHTML = "Hello \
+    Kitty!";
+
+
+
+
+    \ 方法并不是 ECMAScript (JavaScript) 标准。
+
+    某些浏览器也不允许 \ 字符之后的空格。
+
+    对长字符串换行的最安全做法（但是有点慢）是使用字符串加法：
+
+    document.getElementById("demo").innerHTML = "Hello" + 
+    "Kitty!";
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+ <!-- 
+     字符串可以是对象
+  -->
+
+
+
+  <html>
+      <body>
+        <h1>JavaScript 字符串</h1>
+        
+        <p id="demo"></p>
+
+        <script>
+            var x = "Bill";              // x 是字符串
+            var y = new String("Bill");  // y 是对象
+
+            document.getElementById("demo").innerHTML = typeof x + typeof y
+
+        </script>
+      </body>
+  </html>
+
+
+
+  <!-- 
+
+    请不要把字符串创建为对象。它会拖慢执行速度。!!!!!!!!!!!!!
+    new 关键字使代码复杂化。也可能产生一些意想不到的结果：
+
+
+
+    当使用 == 相等运算符时，相等字符串是相等的：
+
+    var x = "Bill";             
+    var y = new String("Bill");
+    //(x == y) 为 true，因为 x 和 y 的值相等
+
+
+    当使用 === 运算符时，相等字符串是不相等的，因为 === 运算符需要类型和值同时相等。
+    // (x === y) 为 false，因为 x 和 y 的类型不同（字符串与对象）
+
+
+
+    甚至更糟。对象无法比较：
+    var a = new String("Bill");             
+    var b = new String("Bill");
+
+    // (a == b) 为 false，因为 a 和 b 是不同的对象
+
+
+   -->

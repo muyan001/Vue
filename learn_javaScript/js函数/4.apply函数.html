@@ -1,0 +1,73 @@
+<!-- 
+
+    通过 apply() 方法，您能够编写用于不同对象的方法。
+
+
+    apply() 方法与 call() 方法非常相似：
+
+
+
+    call() 和 apply() 之间的区别
+        call() 方法分别接受参数。
+        apply() 方法接受数组形式的参数。
+
+
+    在数组上模拟 max 方法
+        Math.max(1,2,3);  // 会返回 3
+
+        由于 JavaScript 数组没有 max() 方法，因此您可以应用 Math.max() 方法。
+        Math.max.apply(null, [1,2,3]); // 也会返回 3
+
+        第一个参数（null）无关紧要。在本例中未使用它。
+        Math.max.apply(Math, [1,2,3]); // 也会返回 3
+
+        Math.max.apply(" ", [1,2,3]); // 也会返回 3
+ -->
+
+
+
+ <html>
+     <body>
+         
+        <h1>JavaScript 函数</h1>
+        
+        <p>在此示例中，person 的 fulllName 方法在 person1 上<b>应用</b>：</p>
+        
+        <p id="demo"></p>
+
+
+        <script>
+            var person = {
+                fullname:function(){
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+
+            var person1 = {
+                firstName: "Bill",
+                lastName: "Gates"
+            }
+
+            var x = person.fullname.apply(person1);
+            document.getElementById("demo").innerHTML = x;
+        </script>
+     </body>
+ </html>
+
+
+ <!-- 在数组上模拟 max 方法 -->
+ <html>
+     <body>
+        <h1>JavaScript apply()</h1>
+        
+        <p>此例返回数字数组中的最大数：</p>
+        
+        <p id="demo1"></p>
+
+        <script>
+            document.getElementById("demo1").innerHTML = Math.max.apply("",[1,2,3,4,2,5,3,9]);
+            document.getElementById("demo1").innerHTML = Math.max.apply(Math,[78,44,2,4,5,6]);
+        </script>
+
+     </body>
+ </html>

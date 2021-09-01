@@ -1,0 +1,88 @@
+<!-- 
+
+    JavaScript 数值
+    书写 JavaScript 数值既可以带小数点，也可以不带：
+
+
+
+    JavaScript 数值始终是 64 位的浮点数!!!!!!!!!!
+
+
+
+
+    NaN - 非数值
+        NaN 属于 JavaScript 保留词，指示某个数不是合法数。
+
+        尝试用一个非数字字符串进行除法会得到 NaN（Not a Number）：
+
+        要小心 NaN。假如您在数学运算中使用了 NaN，则结果也将是 NaN：
+
+    
+    Infinity
+        Infinity （或 -Infinity）是 JavaScript 在计算数时超出最大可能数范围时返回的值。
+
+ -->
+
+ <html>
+     <body>
+         
+        <h1>JavaScript 数字</h1>
+        
+        <p>超大或超小的数可通过科学（指数）计数法来写：</p>
+        
+        <p id="demo"></p>
+
+        <script>
+            var x = 123e5;
+            var y = 123e-5;
+
+            document.getElementById("demo").innerHTML = x + "<br>" + y;
+        </script>
+     </body>
+ </html>
+
+
+
+ <html>
+     <body>
+         
+        <h1>JavaScript 数字</h1>
+        
+        <p>用非数字字符串进行除法会得到 NaN（Not a Number）：</p>
+        
+        <p id="demo1"></p>
+
+        <script>
+            document.getElementById("demo1").innerHTML = 100/"apple";
+        </script>
+     </body>
+ </html>
+
+
+
+ <html>
+     <body>
+        <h1>JavaScript 数字</h1>
+        
+        <p>Infinity （或 -Infinity）是 JavaScript 在计算数时超出最大可能数范围时返回的值：</p>
+        
+        <p id="demo2"></p>
+
+        <script>
+            var myNumber = 2;
+            var txt = "";
+
+            while(myNumber != Infinity){
+                myNumber = myNumber * myNumber;
+                txt = txt + myNumber +"<br>"
+            }
+
+            document.getElementById("demo2").innerHTML = txt
+
+        </script>
+     </body>
+ </html>
+
+
+
+

@@ -1,0 +1,113 @@
+<!-- 
+
+    Number() 转换数值，String() 转换字符串，Boolean() 转换布尔值。
+
+    JavaScript 数据类型
+        JavaScript 中有五种可包含值的数据类型：
+
+            字符串（string）
+            数字（number）
+            布尔（boolean）
+            对象（object）
+            函数（function）
+
+        有三种对象类型：
+
+            对象（Object）
+            日期（Date）
+            数组（Array）
+
+        同时有两种不能包含值的数据类型：
+
+            null
+            undefined
+
+    
+    typeof 运算符
+        您可以使用 typeof 运算符来确定 JavaScript 变量的数据类型。
+        typeof "Bill"                 // 返回 "string"
+
+
+
+    constructor 属性
+        constructor 属性返回所有 JavaScript 变量的构造器函数。
+
+
+    
+    JavaScript 类型转换
+
+
+    
+    把数值转换为字符串
+
+        全局方法 String() 能够把数字转换为字符串。
+        String(x)         // 从数值变量 x 返回字符串
+
+
+        数字方法 toString() 同理。
+        (123).toString()
+
+
+
+
+    把布尔转换为字符串
+
+        全局方法 String() 能够将布尔转换为字符串。
+        String(false)        // 返回 "false"
+
+        布尔方法 toString() 同理。
+        false.toString()     // 返回 "false"
+
+
+    把日期转换为字符串
+        全局方法 String() 可将日期转换为字符串。
+        String(Date())      // 返回 "Thu Aug 19 2021 15:34:54 GMT+0800 (中国标准时间)"
+
+    
+
+    把字符串转换为数值
+        全局方法 Number() 
+            可把字符串转换为数字。
+            把布尔转换数值
+            把日期转换为数字
+            
+
+
+ -->
+
+ <html>
+     <body>
+        <h2>JavaScript constructor 属性</h2>
+        
+        <p>constructor 属性返回变量或对象的构造器函数。</p>
+        
+        <p id="demo"></p>
+        <script>
+            document.getElementById("demo").innerHTML =
+                    "john".constructor + "<br>" +
+                    (3.14).constructor + "<br>" +
+                    false.constructor + "<br>" +
+                    [1, 2, 3, 4].constructor + "<br>" +
+                    { name: 'john', age: 34 }.constructor + "<br>" +
+                    new Date().constructor + "<br>" +
+                    function () { }.constructor;
+        </script>
+     </body>
+ </html>
+
+
+ <html>
+     <body>
+        <h2>JavaScript String() 方法</h2>
+        
+        <p>String() 方法把数字转换为字符串。</p>
+        
+        <p id="demo1"></p>
+        <script>
+            var x = 123;
+            document.getElementById("demo1").innerHTML = String(x) + "<br>" +
+                                                            String(123) + "<br>" +
+                                                            String(100+23) ;
+        </script>
+     </body>
+ </html>

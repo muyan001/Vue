@@ -1,0 +1,62 @@
+<!-- 
+    JSON 语法规则
+        数据是名称/值对
+        数据由逗号分隔
+        花括号保存对象
+        方括号保存数组
+
+
+
+    JSON 数据 - 名称和值
+        名称/值对由（双引号中的）字段名构成，其后是冒号，再其后是值：
+        "firstName":"Bill"
+        JSON 名称需要双引号。JavaScript 名称不需要。
+
+
+    JSON 对象
+        JSON 对象是在花括号内书写的。
+        {"firstName":"Bill", "lastName":"Gates"} 
+
+
+    JSON 数组
+        JSON 数组在方括号中书写。
+        "employees":[
+            {"firstName":"Bill", "lastName":"Gates"}, 
+            {"firstName":"Steve", "lastName":"Jobs"}, 
+            {"firstName":"Alan", "lastName":"Turing"}
+        ]
+
+
+    把 JSON 文本转换为 JavaScript 对象
+
+        首先，创建包含 JSON 语法的 JavaScript 字符串：
+        var text = '{ "employees" : [' +
+            '{ "firstName":"Bill" , "lastName":"Gates" },' +
+            '{ "firstName":"Steve" , "lastName":"Jobs" },' +
+            '{ "firstName":"Alan" , "lastName":"Turing" } ]}';
+
+        
+        然后，使用 JavaScript 的内建函数 JSON.parse() 来把这个字符串转换为 JavaScript 对象：
+            var obj = JSON.parse(text);
+-->
+
+
+<html>
+    <body>
+        
+        <h1>用 JSON 字符串创建对象</h1>
+        
+        <p id="demo"></p>
+
+        <script>
+            var text = '{"employees":[' +
+                    '{"firstName":"Bill","lastName":"Gates" },' +
+                    '{"firstName":"Steve","lastName":"Jobs" },' +
+                    '{"firstName":"Elon","lastName":"Musk" }]}';
+
+            obj = JSON.parse(text);
+            // document.getElementById("demo").innerHTML = obj.employees[1].firstName;
+            document.getElementById("demo").innerHTML = obj.employees;
+        </script>
+    </body>
+</html>

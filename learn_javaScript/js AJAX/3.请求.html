@@ -1,0 +1,111 @@
+<!-- 
+    XMLHttpRequest 对象用于同服务器交换数据。
+
+    向服务器发送请求
+        如需向服务器发送请求，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：
+        open(method, url, async)	
+            method：请求的类型：GET 还是 POST
+            url：服务器（文件）位置
+            async：true（异步）或 false（同步）
+
+        send()	向服务器发送请求（用于 GET）
+        send(string)	向服务器发送请求（用于 POST）
+
+    
+    GET 还是 POST？
+        GET 比 POST 更简单更快，可用于大多数情况下。
+        不过，请在以下情况始终使用 POST：
+            缓存文件不是选项（更新服务器上的文件或数据库）
+            向服务器发送大量数据（POST 无大小限制）
+            发送用户输入（可包含未知字符），POST 比 GET 更强大更安全
+
+
+    GET 请求
+        xhttp.open("GET", "demo_get.asp", true);
+        xhttp.send();
+
+
+    POST 请求
+        xhttp.open("POST", "demo_post.asp", true);
+        xhttp.send();
+
+
+    异步 - ture 还是 false？
+        如需异步发送请求，open() 方法的 async 参数必须设置为 true：
+        xhttp.open("GET", "ajax_test.asp", true);
+        发送异步请求对 web 开发人员来说是一个巨大的进步。服务器上执行的许多任务都非常耗时。在 AJAX 之前，此操作可能会导致应用程序挂起或停止。
+
+        通过异步发送，JavaScript 不必等待服务器响应，而是可以：
+
+            在等待服务器响应时执行其他脚本
+            当响应就绪时处理响应
+
+
+    onreadystatechange 属性
+        通过 XMLHttpRequest 对象，您可以定义当请求接收到应答时所执行的函数。
+        这个函数是在 XMLHttpResponse 对象的 onreadystatechange 属性中定义的：
+
+
+
+ -->
+
+ <!-- get请求 -->
+ <html>
+     <body>
+        <h1>XMLHttpRequest 对象</h1>
+        
+        <button type="button" onclick="loadDoc()">请求数据</button>
+        
+        <p id="demo"></p>
+        <script>
+            function loadDoc() {
+                    var xhttp = new XMLHttpRequest();
+
+                    // 这里可以这么写                   
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("demo").innerHTML = this.responseText;
+                        }
+                    };
+                    // 这么写也是可以的
+                    // xhttp.onreadystatechange = ss;
+                    // function ss(){
+                    //     if (this.readyState == 4 && this.status == 200) {
+                    //         document.getElementById("demo").innerHTML = this.responseText;
+                    //     }
+                    // }
+                    xhttp.open("GET", "learn_javaScript\js AJAX\test.txt", true);
+                    xhttp.send();
+                }
+        </script>
+     </body>
+ </html>
+
+
+ 
+
+
+ <!-- post请求 -->
+ <html>
+    <body>
+        <h1>XMLHttpRequest 对象</h1>
+
+        <button type="button" onclick="loadDoc()">请求数据</button>
+
+        <p id="demo1"></p>
+
+        <script>
+            function loadDoc() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo1").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("POST", "/demo/demo_post2.asp", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("fname=Bill&lname=Gates");
+            }
+        </script>
+    </body>
+</html>

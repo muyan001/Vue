@@ -1,0 +1,40 @@
+<!-- 
+    window.screen 对象包含用户屏幕的信息
+
+    window.screen 对象不带 window 前缀也可以写：
+        属性：
+            screen.width
+            screen.height
+            screen.availWidth
+            screen.availHeight
+            screen.colorDepth
+            screen.pixelDepth
+
+
+    Window Screen 宽度
+        screen.width 属性返回以像素计的访问者屏幕宽度。
+
+
+    Window Screen 高度
+        screen.height 属性返回以像素计的访问者屏幕的高度。
+
+
+    Window Screen 可用高度
+        screen.availHeight 属性返回访问者屏幕的高度，以像素计，减去诸如窗口工具条之类的界面特征。
+ -->
+
+
+ <html>
+
+<body>
+
+    <p id="demo"></p>
+
+    <script>
+        document.getElementById("demo").innerHTML =
+            "屏幕宽度是：" + screen.width;
+    </script>
+
+</body>
+
+</html>

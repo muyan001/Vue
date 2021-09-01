@@ -1,0 +1,87 @@
+<!-- 
+
+    JavaScript 变量属于本地或全局作用域。
+    全局变量能够通过闭包实现局部（私有）。
+
+
+
+    全局变量
+
+
+    JavaScript 嵌套函数
+
+
+
+    JavaScript 闭包
+
+
+        温馨提示：JavaScript中有回收机制，函数没有被引用执行完以后这个函数的作用域就会被销毁，
+        如果一个函数被其他变量引用，这个函数的作用域将不会被销毁，（简单来说就是函数里面的变量会被保存下来，你可以理解成全局变量。）
+
+ -->
+
+
+ <!-- 嵌套函数 -->
+
+<html>
+
+<body>
+
+    <h1>JavaScript 函数闭包</h1>
+
+    <p>使用局部变量计数。</p>
+
+    <p id="demo">0</p>
+
+    <script>
+        document.getElementById("demo").innerHTML = add();
+        function add() {
+            var counter = 0;
+            function plus() { counter += 1; }
+            plus();
+            return counter;
+        }
+    </script>
+
+</body>
+
+</html>
+
+
+
+<!-- 闭包 -->
+
+<!-- 
+    变量 add 的赋值是自调用函数的返回值。
+    这个自调用函数只运行一次。它设置计数器为零（0），并返回函数表达式。
+    这样 add 成为了函数。最“精彩的”部分是它能够访问父作用域中的计数器。
+    这被称为 JavaScript 闭包。它使函数拥有“私有”变量成为可能。
+    计数器被这个匿名函数的作用域保护，并且只能使用 add 函数来修改。
+    闭包指的是有权访问父作用域的函数，即使在父函数关闭之后。
+ -->
+<html>
+
+<body>
+
+    <h1>JavaScript 闭包</h1>
+
+    <p>使用局部变量计数。</p>
+
+    <button type="button" onclick="myFunction()">计数！</button>
+
+    <p id="demo1">0</p>
+
+    <script>
+        var add = (function () {
+            var counter = 0;
+            return function () { counter += 1; return counter; }
+        })();
+
+        function myFunction() {
+            document.getElementById("demo1").innerHTML = add();
+        }
+    </script>
+
+</body>
+
+</html>

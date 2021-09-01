@@ -1,0 +1,97 @@
+<!-- 
+    改变 HTML 样式
+        document.getElementById(id).style.property = new style
+
+
+    使用事件
+        当“某些事情”在 HTML 元素上发生时，浏览器会生成事件：
+            点击某个元素时
+            页面加载时
+            输入字段被更改时
+
+
+    元素是否可见
+        hidden ： 隐藏
+        visible ：显示
+
+
+    
+ -->
+
+ <html>
+     <body>
+         
+        <p id="p1">Hello World!</p>
+        <p id="p2">Hello World!</p>
+        <script>
+            document.getElementById("p2").style.color = "blue";
+            document.getElementById("p2").style.fontFamily = "Arial";
+            document.getElementById("p2").style.fontSize = 30;
+        </script>
+     </body>
+ </html>
+
+
+
+ <!-- 事件 -->
+<html>
+
+<body>
+
+    <h1 id="id1">我的标题</h1>
+
+    <!-- <button type="button" onclick="document.getElementById('id1').style.color = 'red'">
+        单击我！</button> -->
+
+    <button type="button" onclick="changeColor()">点击</button>
+
+    <script>
+
+        // 采用闭包，循环改变颜色
+        var x = ["red","green","blue","yellow","orange"]
+
+        function myFunction(){
+            var index = 0;
+            var length = x.length;
+            function a(){
+                if (index<length-1){
+                    index++;
+                    return index
+                }else{
+                    index = 0;
+                    return index
+                }
+            }
+            return a; 
+        }
+
+        var y = myFunction();
+        function changeColor(){
+            document.getElementById("id1").style.color=x[y()];
+        }
+        
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- 元素隐藏或者可见 -->
+<html>
+
+<body>
+
+    <p id="p11">
+        这是文本。
+        这是文本。
+        这是文本。
+        这是文本。
+    </p>
+
+    <input type="button" value="隐藏文本" onclick="document.getElementById('p11').style.visibility='hidden'">
+    <input type="button" value="显示文本" onclick="document.getElementById('p11').style.visibility='visible'">
+
+</body>
+
+</html>

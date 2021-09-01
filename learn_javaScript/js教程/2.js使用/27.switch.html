@@ -1,0 +1,49 @@
+<!-- 
+
+
+    switch(表达式) {
+     case n:
+        代码块
+        break;
+     case n:
+        代码块
+        break;
+     default:
+        默认代码块
+    } 
+
+
+    严格的比较
+        Switch case 使用严格比较（===）。
+        值必须与要匹配的类型相同。
+        只有操作数属于同一类型时，严格比较才能为 true。
+
+
+
+ -->
+
+
+
+ <html>
+     <body>
+        <h2>JavaScript switch</h2>
+        
+        <p id="demo"></p>
+
+
+        <script>
+            var text;
+            switch (new Date().getDay()) {
+                case 6:
+                    text = "今天是周六";
+                    break;
+                case 0:
+                    text = "今天是周日";
+                    break;
+                default:
+                    text = "期待周末";
+            }
+            document.getElementById("demo").innerHTML = text;
+        </script>
+     </body>
+ </html>

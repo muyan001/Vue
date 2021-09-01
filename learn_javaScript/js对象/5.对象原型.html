@@ -1,0 +1,54 @@
+<!-- 
+
+    原型继承
+        所有 JavaScript 对象都从原型继承属性和方法。
+        日期对象继承自 Date.prototype。数组对象继承自 Array.prototype。Person 对象继承自 Person.prototype。
+        Object.prototype 位于原型继承链的顶端：
+        日期对象、数组对象和 Person 对象都继承自 Object.prototype。
+
+
+
+    
+    使用 prototype 属性,向对象添加属性和方法
+        JavaScript prototype 属性允许您为对象构造器添加新属性：
+        JavaScript prototype 属性也允许您为对象构造器添加新方法：
+
+
+    
+
+ -->
+
+
+ <!-- 使用 prototype 属性 -->
+
+
+ <html>
+     <body>
+         
+        <h1>JavaScript 对象</h1>
+        
+        <p id="demo"></p>
+        <p id="demo1"></p>
+        <script>
+            function Person(first, last, age, eye){
+                this.firstName = first;
+                this.lastName = last;
+                this.age = age;
+                this.eyeColor = eye;
+            }
+            // 添加新属性
+            Person.prototype.language = "English"
+
+            // 添加新方法
+            Person.prototype.name = function(value){
+                return this.firstName + this.lastName + value;
+            }
+
+            // Person.prototype.nationality = "English";
+            var friend = new Person("Bill", "Gates", 62, "blue");
+            document.getElementById("demo").innerHTML = friend.language;
+
+            document.getElementById("demo1").innerHTML = friend.name("name");
+        </script>
+     </body>
+ </html>

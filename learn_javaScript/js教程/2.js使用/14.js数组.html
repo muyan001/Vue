@@ -1,0 +1,209 @@
+<!-- 
+
+    创建数组
+    var array-name = [item1, item2, ...];
+
+
+
+    使用 JavaScript 关键词 new
+
+    var cars = new Array("Saab", "Volvo", "BMW");
+
+
+    以上两个例子效果完全一样。无需使用 new Array()。
+
+    出于简洁、可读性和执行速度的考虑，请使用第一种方法（数组文本方法）。
+
+
+
+
+
+
+
+
+ -->
+
+
+
+
+
+ <!-- 
+
+
+    访问数组元素
+
+        我们通过引用索引号（下标号）来引用某个数组元素。
+        var name = cars[0];
+
+
+        这条语句修改 cars 中的首个元素：
+        cars[0] = "Opel";
+
+    改变数组元素
+        cars[0] = "Opel";
+
+
+
+    访问完整数组
+        通过 JavaScript，可通过引用数组名来访问完整数组：
+
+
+  -->
+
+
+
+  <!-- 
+
+    数组是对象
+
+        数组是一种特殊类型的对象。在 JavaScript 中对数组使用 typeof 运算符会返回 "object"。
+        但是，JavaScript 数组最好以数组来描述。
+
+    
+    数组元素可以是对象
+        JavaScript 变量可以是对象。数组是特殊类型的对象。
+
+        正因如此，您可以在相同数组中存放不同类型的变量。
+   -->
+
+
+
+<!-- 
+
+
+数组属性和方法
+
+    var x = cars.length;   // length 属性返回元素的数量
+    var y = cars.sort();   // sort() 方法对数组进行排序
+
+访问第一个数组元素
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    var first = fruits[0];
+
+
+访问最后一个数组元素
+    fruits = ["Banana", "Orange", "Apple", "Mango"];
+    var last = fruits[fruits.length - 1];
+
+遍历数组元素
+    遍历数组的最安全方法是使用 "for" 循环：
+
+    您也可以使用 Array.foreach() 函数：
+        foreach 语法：
+
+　     [ ].forEach(function(value,index,array){
+　
+　　　　    //code something
+　　　　
+　　    });
+
+添加数组元素
+    向数组添加新元素的最佳方法是使用 push() 方法：
+
+    也可以使用 length 属性向数组添加新元素：
+    fruits[fruits.length] = "Lemon";     // 向 fruits 添加一个新元素 (Lemon)
+
+
+关联数组
+    在 JavaScript 中，数组只能使用数字索引。
+
+
+
+
+
+如何识别数组
+    为了解决这个问题，ECMAScript 5 定义了新方法 Array.isArray()：
+    Array.isArray(fruits);     // 返回 true
+
+
+    假如对象由给定的构造器创建，则 instanceof 运算符返回 true：
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits instanceof Array     // 返回 true
+
+-->
+
+<html>
+    <body>
+        <h1>JavaScript 数组</h1>
+        
+        <p>使用数字索引（从 0 开始）访问 JavaScript 数组元素。</p>
+        
+        <p id="demo"></p>
+
+        <script>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            
+            var last = fruits[fruits.length -1]
+            // var last = fruits[fruits.];
+            document.getElementById("demo").innerHTML = last;
+
+        </script>
+    </body>
+</html>
+
+
+<!-- 访问最后一个数组 -->
+
+<html>
+    <body>
+        
+        <h1>JavaScript 数组</h1>
+        
+        <p>Array.forEach() 为每个数组元素调用函数。</p>
+        
+        <p>Internet Explorer 8 以及更早的版本不支持 Array.forEach()。</p>
+        
+        <p id="demo2"></p>
+
+        <script>
+            var fruits, text;
+            fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+            text = "<ul>";
+
+            fruits.for
+            fruits.forEach(myFunction);
+            text += "</ul>";
+
+            document.getElementById("demo2").innerHTML = text;
+
+            function myFunction(value){
+                text += "<ul>" + value +"</ul>"
+            }
+        </script>
+
+    </body>
+</html>
+
+
+<!-- 向数组添加新元素的最佳方法是使用 push() 方法： -->
+<html>
+    <body>
+        <h1>JavaScript 数组</h1>
+        
+        <p>push 方法向数组追加新元素。</p>
+        
+        <button onclick="myFunction()">试一试</button>
+        
+        <p id="demo3"></p>
+
+        <script>
+            var fr = ["Banana", "Orange", "Apple", "Mango"]
+
+            document.getElementById("demo3").innerHTML = fr;
+            
+            function myFunction(){
+                fr.push("小米");
+                document.getElementById("demo3").innerHTML = fr;
+
+            }
+            
+
+            
+
+        </script>
+    </body>
+</html>
+
+
+

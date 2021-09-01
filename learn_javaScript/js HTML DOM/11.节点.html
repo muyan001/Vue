@@ -1,0 +1,102 @@
+<!-- 
+
+    创建新 HTML 元素（节点）
+        如需向 HTML DOM 添加新元素，您必须首先创建这个元素（元素节点），然后将其追加到已有元素。appendChild()
+
+
+
+    创建新 HTML 元素 - insertBefore()
+        除此之外您还可以使用 insertBefore() 方法：   第一个子节点添加
+
+
+    删除已有 HTML 元素
+        removeChild()
+        找到你想要删除的子，并利用其 parentNode 属性找到父：
+
+        方法 node.remove() 是在 DOM 4 规范中实现的。
+        但是由于糟糕的浏览器支持，不应该使用该方法。
+
+
+    如需替换元素的，请使用 replaceChild() 方法：
+        和removeChild()方法的使用类似
+ -->
+
+ <html>
+     <body>
+         
+        ​
+        <div id="div1">
+            <p id="p1" >这是一段文字。</p>
+            <p id="p2">这是另一段文字。</p>
+        </div>
+        <script>
+            var para = document.createElement("p");
+            para.style.color = "red";
+            para.style.fontSize = 20;
+            var node = document.createTextNode("这是新的文本");
+            para.appendChild(node);
+            var element = document.getElementById("div1");
+            element.appendChild(para);
+        </script>
+     </body>
+ </html>
+
+
+ <html>
+     <body>
+        <div id="div11">
+            <p id="p11">这是一段文字。</p>
+            <p id="p22">这是另一段文字。</p>
+        </div>
+        <script>
+            var para = document.createElement("p0");
+            var node = document.createTextNode("这是新的文本。");
+            para.style.color = "blue";
+            para.appendChild(node);
+
+            var element = document.getElementById("div11");
+            var child = document.getElementById("p11");
+            element.insertBefore(para, child);
+        </script>
+     </body>
+ </html>
+
+
+
+ <!-- 删除元素 -->
+ <html>
+    <body>
+        <div id="div01">
+            <p id="p01">这是一段文字。0000000000000</p>
+            <p id="p02">这是另一段文字。00000000000000000</p>
+        </div>
+
+        <script>
+            var parent = document.getElementById("div01");
+            var child = document.getElementById("p01");
+            parent.removeChild(child);
+        </script>
+    </body>
+</html>
+
+
+<!-- 替换 HTML 元素 -->
+<html>
+    <body>
+        <div id="div10">
+            <p id="p10">这是一段文字。101010</p>
+            <p id="p20">这是另一段文字。101010</p>
+        </div>
+        <script>
+            // var parent = document.getElementById("div10");
+
+            var child = document.getElementById("p10");
+            var ss = child.parentElement;
+            var para = document.createElement("p0");
+            var node = document.createTextNode("这是新的文本。quanxinde");
+            para.appendChild(node);
+            // parent.replaceChild(para, child);
+            ss.replaceChild(para,child);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<!-- 
+    通过 JavaScript 创建 cookie
+
+        Cookie 保存在名称值对中，如：
+        username = Bill Gates
+
+        JavaScript 可以用 document.cookie 属性创建、读取、删除 cookie。
+        通过 JavaScript，可以这样创建 cookie：
+            document.cookie = "username=Bill Gates";
+
+        您还可以添加有效日期（UTC 时间）。默认情况下，在浏览器关闭时会删除 cookie：
+            document.cookie = "username=John Doe; expires=Sun, 31 Dec 2017 12:00:00 UTC";
+
+
+    通过 JavaScript 读取 cookie
+        var x = document.cookie;
+        document.cookie 会在一条字符串中返回所有 cookie，比如：cookie1=value; cookie2=value; cookie3=value;
+
+
+
+    通过 JavaScript 改变 cookie
+        document.cookie = "username=Steve Jobs; expires=Sun, 31 Dec 2017 12:00:00 UTC; path=/";
+
+
+    通过 JavaScript 删除 cookie
+        删除 cookie 非常简单。
+        删除 cookie 时不必指定 cookie 值：
+        直接把 expires 参数设置为过去的日期即可：
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        您应该定义 cookie 路径以确保删除正确的 cookie。
+        如果你不指定路径，一些浏览器不会让你删除 cookie。
+
+
+    Cookie 字符串
+        document.cookie 属性看起来像一个正常的文本字符串。但它不是。
+        即使你向 document.cookie 写一份完整的 cookie 字符串，当再次读取时，你只能看到它的名称-值对。
+        如果设置了新 cookie，则旧的 cookie 不会被覆盖。新的 Cookie 会被添加到 document.cookie，所以如果你读取 document.cookie，你得到的东西会像这样：
+        cookie1 = value; cookie2 = value;
+        显示所有 cookie 创建 cookie 1 创建 cookie 2 删除 cookie 1 删除 cookie 2
+        如果你想找到一个指定 cookie 的值，你必须编写 JavaScript 函数来搜索 cookie 字符串中的 cookie 值。
+
+
+ -->
+
+
+ <html>
+     <body>
+         <p id="demo"></p>
+         <button onclick="setCookie(123,224,12)">点击</button>
+         
+        <script>
+            // 设置cookie
+            function setCookie(cname,cvalue,cday){
+                var d = new Date();
+                d.setTime(d.getTime()+ (cday *24*60*60*1000 ))
+                var expires = "expires=" + d.toUTCString();
+
+                document.cookie = cname + "=" + cvalue +";" +
+                                    expires + ";path=/"; 
+
+                // console.log(document.cookie);
+
+                document.getElementById("demo").innerHTML = document.cookie;
+            }
+
+            // 获取cookie
+            function getCookie(cname){
+                var name =  cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+
+            // 检测 cookie 的函数
+            function checkCookie(){
+                 var username = getCookie("username");
+                if (username != "") {
+                    alert("Welcome again " + username);
+                } else {
+                    username = prompt("Please enter your name:", "");
+                    if (username != "" && username != null) {
+                        setCookie("username", username, 365);
+                    }
+                }
+            }
+
+
+
+        </script>
+     </body>
+ </html>

@@ -1,0 +1,116 @@
+<!-- 
+    Array.forEach()
+        forEach() 方法为每个数组元素调用一次函数（回调函数）。
+
+    Array.map()
+        map() 方法通过对每个数组元素执行函数来创建新数组。
+        map() 方法不会对没有值的数组元素执行函数。
+        map() 方法不会更改原始数组。
+
+
+    Array.filter()
+        filter() 方法创建一个包含通过测试的数组元素的新数组。
+
+
+    Array.reduce()
+        reduce() 方法在每个数组元素上运行函数，以生成（减少它）单个值。
+        reduce() 方法在数组中从左到右工作。另请参阅 reduceRight()。
+        reduce() 方法不会减少原始数组。
+
+    
+
+    
+    
+ -->
+
+
+ <html>
+     <body>
+        <h1>JavaScript Array.forEach()</h1>
+        
+        <p>为每个元素调用一次函数。</p>
+        
+        <p id="demo"></p>
+
+        <script>
+            var txt = "";
+            var numbers = [45, 4, 9, 16, 25];
+
+            numbers.forEach(myFunction);
+            document.getElementById("demo").innerHTML = txt;
+
+            function myFunction(value,index,arry){
+                txt = txt + value +"<br>"
+            }
+        </script>
+     </body>
+ </html>
+
+
+
+
+ <html>
+     <body>
+        <h1>JavaScript Array.map()</h1>
+        
+        <p>通过对每个数组元素执行函数来创建新数组。</p>
+        
+        <p id="demo5"></p>
+
+        <script>
+            var numbers1 = [45, 4, 9, 16, 25];
+            var numbers2 = numbers1.map(myFunction);
+
+            document.getElementById("demo5").innerHTML = numbers2;
+
+            function myFunction(value, index, array){
+                return value * 2;
+            }
+
+        </script>
+     </body>
+ </html>
+
+
+ <!-- filter:过滤器 -->
+ <html>
+     <body>
+        <h1>JavaScript Array.filter()</h1>
+        
+        <p>使用通过测试的所有数组元素创建一个新数组。</p>
+        
+        <p id="demo78"></p>
+
+        <script>
+            var numbers = [45, 4, 9, 16, 25];
+            var over18 = numbers.filter(myFunction);
+
+            document.getElementById("demo78").innerHTML = over18;
+
+            function myFunction(value,index,arry){
+                return value > 18;
+            }
+        </script>
+     </body>
+ </html>
+
+
+ <html>
+     <body>
+        <h1>JavaScript Array.reduce()</h1>
+        
+        <p>此例确定数组中所有数字的总和：</p>
+        
+        <p id="demo13"></p>
+
+        <script>
+            var numbers = [45, 4, 9, 16, 25];
+            var sum = numbers.reduce(myFunction);
+            document.getElementById("demo13").innerHTML = "总和是："+sum;
+            function myFunction(total, value, index, array){
+                return total + value;
+            }
+        </script>
+
+     </body>
+ </html>

@@ -1,0 +1,58 @@
+<!-- 
+    JSON.stringify() 把 JavaScript 对象转换为字符串。
+
+
+    对 JavaScript 对象进行字符串化
+
+
+    Stringify JavaScript 数组:也可以对 JavaScript 数组进行字符串化：
+
+
+    例外
+        日期字符串化
+        在 JSON 中，不允许日期对象。JSON.stringify() 函数将把任何日期转换为字符串。
+
+    函数字符串化
+        在 JSON 中，不允许函数作为对象值。
+ -->
+
+ <!-- 对 JavaScript 对象进行字符串化 -->
+ <html>
+
+<body>
+
+    <h1>从 JavaScript 对象创建 JSON 字符串</h1>
+
+    <p id="demo"></p>
+
+    <script>
+        var obj = { name: "Bill", age: 62, city: "Seatle" };
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("demo").innerHTML = myJSON;
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- 数组  -->
+<html>
+
+<body>
+
+    <h1>用 JavaScript 数组创建 JSON 字符串</h1>
+
+    <p id="demo"></p>
+
+    <script>
+
+        var arr = ['Bill Gates', 'Steve Jobs', "Elon Musk"];
+        var myJSON = JSON.stringify(arr);
+        document.getElementById("demo").innerHTML = myJSON;
+
+    </script>
+
+</body>
+
+</html>

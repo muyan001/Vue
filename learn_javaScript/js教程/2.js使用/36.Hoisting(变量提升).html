@@ -1,0 +1,33 @@
+<!-- 
+
+    提升（Hoisting）是 JavaScript 将声明移至顶部的默认行为。
+
+
+    JavaScript 初始化不会被提升
+        JavaScript 只提升声明，而非初始化。
+
+
+
+    Hoisting（对很多开发者来说）是 JavaScript 的一种未知的或被忽视的行为。
+
+    如果开发者不理解 hoisting，程序也许会包含 bug（错误）。
+
+    为了避免 bug，请始终在每个作用域的开头声明所有变量。
+    由于这就是 JavaScript 解释代码的方式，请保持这个好习惯。
+ -->
+
+
+ <html>
+     <body>
+         
+        <p id="demo"></p>
+        <script>
+            x = 5; // 把 5 赋值给 x
+
+            elem = document.getElementById("demo"); // 查找元素
+            elem.innerHTML = x;           // 在这个元素中显示 x
+
+            var x; // Declare x
+        </script>
+     </body>
+ </html>

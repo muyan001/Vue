@@ -1,0 +1,109 @@
+
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div id="example1">
+                <!-- input      文本 -->
+                <input type="text" v-model="message" placeholder="edit me">
+                <p>Message is :{{message}}</p>
+                <!-- 
+                    textarea:文本输入框，可伸缩   多行文本
+                 -->
+                 <textarea  v-model="message2" placeholder="add"></textarea>
+                 <p>message2 is :{{message2}}</p>
+
+
+                 <!-- 复选框 -->
+
+                 <div style="margin-top: auto;">
+                    <input type="checkbox" id="jack" value="Jack" v-model="checkNames">
+                    <label for="jack">jack</label>
+
+
+                    <input type="checkbox" id="mick" value="Mick" v-model="checkNames">
+                    <label for="mick">mick</label>
+
+                    <input type="checkbox" id="jone" value="Jone" v-model="checkNames">
+                    <label for="jone">jone</label>
+
+                    <br>
+
+                    <span>checkNames : {{checkNames}}</span>
+
+                 </div>
+
+                 <!-- 单选按钮 -->
+                 <div>
+                     <input type="radio" id="one" value="One" v-model="picked">
+                     <label for="one">one</label>
+
+                    <input type="radio" id="two" value="Two" v-model="picked">
+                    <label for="two">two</label>
+
+                    <input type="radio" id="three" value="Three" v-model="picked">
+                    <label for="three">three</label>
+
+                    <br>
+                    <!-- <span>picked is :{{picked}}</span> -->
+                 </div>
+                 <!-- 选择框 -->
+                 <div>
+                    <select v-model="selected">
+                        <option disabled value="">请选择</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                    </select>
+                 </div>
+
+
+                 <!-- 值绑定 -->
+                <!-- 当选中时，`picked` 为字符串 "a" -->
+                <input type="radio" v-model="picked1" value="a">
+                <span>picked1 is :{{picked1}}</span>
+                <br>
+
+
+                 <!-- 将表单绑定的数据进行发送 -->
+                 <button type="button" v-on:click="click" >点击</button>
+
+            </div>
+
+        </div>
+    </body>
+    <script>
+        var vm = new Vue({
+            el:"#example1",
+            data:{
+                message:"18725659075",
+                message2:"",
+                checkNames:[],// checkbox 标签对应必须用中括号【】
+                picked:"Three",
+                selected:"",
+                picked1:""
+
+            },
+            methods:{
+                click:function(){
+                    console.log(this.message)// this代表当前vue对象
+
+                    //可以生成一个对象，将表单所有对象的值收集起来，统一发送给后端
+                    var obj = {
+                        mes:this.message,
+                        mes2:this.message2,
+                        cn:this.checkNames,
+                        pk:this.picked,
+                        selected:this.selected
+
+                    }
+                    console.log(obj)
+                }
+            }
+            
+
+        });
+    </script>
+</html>

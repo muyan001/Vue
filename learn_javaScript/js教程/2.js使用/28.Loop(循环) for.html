@@ -1,0 +1,68 @@
+<!-- 
+
+    JavaScript 循环
+
+        假如您需要运行代码多次，且每次使用不同的值，那么循环（loop）相当方便使用。
+
+
+    不同类型的循环
+        for - 多次遍历代码块
+        for/in - 遍历对象属性
+        while - 当指定条件为 true 时循环一段代码块
+        do/while - 当指定条件为 true 时循环一段代码块
+
+
+    for (语句 1; 语句 2; 语句 3) {
+     要执行的代码块
+    }
+
+
+
+    For/In 循环
+        JavaScript for/in 语句遍历对象的属性：
+
+
+    
+    
+ -->
+
+
+ <html>
+     <body>
+        <h1>JavaScript 循环</h1>
+        
+        <p id="demo"></p>
+
+        <script>
+            var text = "";
+            var i;
+            for (i = 0;i<5;i++){
+                text += "the number is " + i + "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+        </script>
+     </body>
+ </html>
+
+
+
+ <html>
+     <body>
+        <h1>JavaScript 循环</h1>
+        
+        <p>for/in 语句循环遍历对象的属性。</p>
+        
+        <p id="demo1"></p>
+
+        <script>
+            var txt = "";
+            var person = { fname: "Bill", lname: "Gates", age: 62 };
+            var x;
+
+            for (x in person){
+                txt += person[x] + "";
+            }
+            document.getElementById("demo1").innerHTML = txt;
+        </script>
+     </body>
+ </html>

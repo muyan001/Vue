@@ -1,0 +1,104 @@
+<!-- 
+
+    使用 window.alert() 写入警告框
+    使用 document.write() 写入 HTML 输出
+    使用 innerHTML 写入 HTML 元素
+    使用 console.log() 写入浏览器控制台
+ -->
+
+
+ <!-- 使用 innerHTML -->
+<html>
+    <body>
+        <h1>我的第一张网页</h1>
+        
+        <p>我的第一个段落</p>
+        <p id="demo"></p>
+        <script>
+            document.getElementById('demo').innerHTML = 5+6;
+        </script>
+        
+    </body>
+</html>
+
+
+
+
+
+<!-- 使用 document.write() -->
+<!-- 注意：在 HTML 文档完全加载后使用 document.write() 将删除所有已有的 HTML ： -->
+
+<html>
+    <body>
+        <h1>我的第一张网页</h1>
+        
+        <p>我的第一个段落</p>
+        
+        <script>
+            document.write(5+6);
+        </script>
+    </body>
+</html>
+
+
+
+
+<html>
+
+<body>
+
+    <h1>我的第一张网页</h1>
+
+    <p>我的第一个段落</p>
+
+    <button onclick="document.write(5 + 6)">试一试</button>
+
+</body>
+
+</html>
+
+
+<!-- 使用 window.alert() -->
+<!-- 您能够使用警告框来显示数据： -->
+
+
+<html>
+
+<body>
+
+    <h1>我的第一张网页</h1>
+
+    <p>我的第一个段落</p>
+
+    <script>
+        window.alert(8+9);
+    </script>
+
+</body>
+
+</html>
+
+
+<!-- 使用 console.log() -->
+<!-- 
+
+    在浏览器中，您可使用 console.log() 方法来显示数据。
+
+    请通过 F12 来激活浏览器控制台，并在菜单中选择“控制台”。
+ -->
+
+ html>
+
+<body>
+
+    <h1>我的第一张网页</h1>
+
+    <p>我的第一个段落</p>
+
+    <script>
+        console.log(5 + 6);
+    </script>
+
+</body>
+
+</html>

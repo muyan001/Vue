@@ -1,0 +1,71 @@
+<!-- 
+
+    以函数形式调用函数
+        function myFunction(a, b) {
+            return a * b;
+        }
+        myFunction(10, 2);           // 将返回 20
+
+
+
+    作为方法来调用函数
+        在 JavaScript 中，您可以把函数定义为对象方法。
+        var myObject = {
+            firstName:"Bill",
+            lastName: "Gates",
+            fullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+        myObject.fullName();         // 将返回 "Bill Gates"
+
+
+
+
+    通过函数构造器来调用函数
+        如果函数调用的前面是 new 关键字，那么这是一个构造函数调用。
+        // 这是函数构造器：
+        function myFunction(arg1, arg2) {
+            this.firstName = arg1;
+            this.lastName  = arg2;
+        }
+
+        // 创建了一个新对象：
+        var x = new myFunction("Bill", "Gates");
+        x.firstName;                             // 会返回 "Bill"
+
+
+
+    
+ -->
+
+
+ <!--  通过函数构造器来调用函数 -->
+
+ <html>
+
+<body>
+
+    <h1>JavaScript 函数</h1>
+
+    <p>在这个例子中，myFunction 是一个函数构造函数：</p>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction(arg1, arg2) {
+            this.firstName = arg1;
+            this.lastName = arg2;
+            return this.firstName;
+        }
+
+        var x = new myFunction("Bill","Gates")
+        document.getElementById("demo").innerHTML = x.firstName; 
+        // var x = myFunction("Bill", "Gates");
+        // document.getElementById("demo").innerHTML = x;
+
+    </script>
+
+</body>
+
+</html>

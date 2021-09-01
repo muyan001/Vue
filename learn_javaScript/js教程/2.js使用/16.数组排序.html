@@ -1,0 +1,143 @@
+<!-- 
+    sort() 方法是最强大的数组方法之一。
+
+    数组排序
+        sort() 方法以字母顺序对数组进行排序：
+
+        sort() 方法在对数值排序时会产生不正确的结果。!!!!!!!!!!
+
+    反转数组
+        reverse() 方法反转数组中的元素。
+
+
+    比值函数：
+        比较函数的目的是定义另一种排序顺序。
+        比较函数应该返回一个负，零或正值，这取决于参数：
+
+
+
+    查找最高（或最低）的数组值
+        JavaScript 不提供查找数组中最大或最小数组值的内建函数。
+        不过，在对数组进行排序之后，您能够使用索引来获得最高或最低值。                如果您仅仅需要找到最高或最低值，对整个数组进行排序是效率极低的方法。
+
+
+    对数组使用 Math.max()
+        您可以使用 Math.max.apply 来查找数组中的最高值：
+
+
+ -->
+
+
+ <html>
+     <body>
+        <h1>JavaScript 数组排序</h1>
+        
+        <p>sort() 方法按字母顺序对数组进行排序。</p>
+        
+        <button type ="button" onclick="myFunction()">试一试</button>
+        
+        <p id="demo"></p>
+
+        <script>
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            document.getElementById("demo").innerHTML = fruits;
+
+            function myFunction(){
+                fruits.sort();
+                document.getElementById("demo").innerHTML = fruits;
+            }
+        </script>
+     </body>
+ </html>
+
+ <html>
+     <body>
+        <h1>JavaScript 数组排序反转</h1>
+        
+        <p>reverse() 方法反转数组中的元素。</p>
+        
+        <p>通过组合 sort() 和 reverse()，您可以按降序对数组进行排序。</p>
+        
+        <button onclick="myFunction1()">试一试</button>
+        
+        <p id="demo1"></p>
+     </body>
+
+     <script>
+         var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo1").innerHTML = fruits;
+        function myFunction1(){
+            fruits.sort();
+            fruits.reverse();
+            document.getElementById("demo1").innerHTML = fruits;
+        }
+     </script>
+ </html>
+
+
+ <!-- 比值函数 -->
+ <html>
+     <body>
+         
+        <h1>JavaScript 数组排序</h1>
+        
+        <p>单击按钮可按字母顺序或数字顺序对数组进行排序。</p>
+        
+        <button onclick="myFunction1()">按字母排序</button>
+        <button onclick="myFunction2()">按数字排序</button>
+
+
+        <p id="demo10"></p>
+
+        <script>
+            var points = [40, 100, 1, 5, 25, 10];
+            document.getElementById("demo10").innerHTML = points;
+
+            function myFunction1(){
+                points.sort();
+                document.getElementById("demo10").innerHTML = points;
+
+            }
+
+            function myFunction2(){
+                points.sort(function(a ,b ){return a -b});
+                document.getElementById("demo10").innerHTML = points;
+            }
+        </script>
+     </body>
+ </html>
+
+
+ <!-- 寻找数组中的最大值最小值 -->
+
+ <html>
+     <body>
+         
+        <h1>JavaScript 数组排序</h1>
+        <p>原始数组：<span id="demo111"></span></p>
+        
+        <p>最高值是：<span id="demo777"></span></p>
+        <p>最低值是：<span id="demo888"></span></p>
+
+        <script>
+            var points = [40, 100, 1, 5, 25, 10];
+            document.getElementById("demo111").innerHTML = points;
+            document.getElementById("demo777").innerHTML = myArrayMax(points);
+            document.getElementById("demo888").innerHTML = myArrayMin(points);
+
+            function myArrayMax(arr){
+                return Math.max.apply(null,arr);
+            }
+
+            function myArrayMin(arr){
+                return Math.min.apply(null,arr);
+            }
+        </script>
+     </body>
+ </html>
+
+
+
+
+
+

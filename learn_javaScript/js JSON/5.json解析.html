@@ -1,0 +1,130 @@
+<!-- 
+    JSON 的常规用途是同 web 服务器进行数据传输。
+
+    在从 web 服务器接收数据时，数据永远是字符串。
+
+    通过 JSON.parse() 解析数据，这些数据会成为 JavaScript 对象。
+
+
+
+    作为 JSON 的数组
+        在对衍生自数组的 JSON 使用 JSON.parse() 后，此方法将返回 JavaScript 数组，而不是 JavaScript 对象。
+
+
+    解析日期
+        JSON 中不允许日期对象。
+
+        如果您需要包含日期，请写为字符串。
+
+        之后您可以将其转换回日期对象：
+
+
+    解析函数
+        JSON 中不允许函数。
+
+        如果您需要包含函数，请把它写作字符串。
+
+        稍后您可以把它转换回函数：
+
+
+
+ -->
+
+
+ <html>
+     <body>
+        <h1>用 JSON 字符串创建对象</h1>
+        
+        <p id="demo"></p>
+        <script>
+            var text = '{"employees":[' +
+                    '{"firstName":"Bill","lastName":"Gates" },' +
+                    '{"firstName":"Steve","lastName":"Jobs" },' +
+                    '{"firstName":"Elon","lastName":"Musk" }]}';
+             obj = JSON.parse(text);
+            document.getElementById("demo").innerHTML = obj.employees[1].firstName + " " + obj.employees[1].lastName;
+        </script>
+     </body>
+ </html>
+
+
+ <!-- 来自服务器的json -->
+ <!-- <html>
+     <body>
+        <h1>使用 XMLHttpRequest 获取文件的内容</h1>
+        
+        <p>JSON 格式的内容能够轻松转换为 JavaScript 对象。</p>
+        
+        <p id="demo1"></p>
+        <script>
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    var myObje = JSON.parse(this.responseText);
+                    document.getElementById("demo1").innerHTML = myObje.name;
+                }
+
+            };
+            xhttp.open("GET", "/example/json/json_demo.txt", true);
+            xhttp.send();
+
+        </script>
+        <p>查看 <a href="/example/json/json_demo.txt" target="_blank">json_demo.txt</a></p>
+     </body>
+ </html> -->
+
+
+ <!-- json 数组            这个不得行！！！！！！！！！！！！！！ -->
+ <html>
+     <body>
+        <h1>数组内容</h1>
+        
+        <p>以 JSON 数组写的内容会被转换为 JavaScript 数组。</p>
+        
+        <p id="demo2"></p>
+
+        <script>
+            var test = ["porsche", "BMW", "Volvo", "Audi"];
+            var mycontent = JSON.parse(test);
+            document.getElementById("demo2").innerHTML = mycontent;
+        </script>
+     </body>
+ </html>
+
+
+
+ <!-- 解析日期 JSON 中不允许日期对象 -->
+<html>
+    <body>
+        <h1>把字符串转换为 date 对象</h1>
+        
+        <p id="demo3"></p>
+
+        <script>
+            var text = '{"name":"Bill Gates", "birth":"1955-10-28", "city":"Seattle"}';
+                var obj = JSON.parse(text);
+                obj.birth = new Date(obj.birth);
+                document.getElementById("demo3").innerHTML = obj.name + ", " + obj.birth;
+        </script>
+    </body>
+</html>
+
+
+<html>
+
+<body>
+
+    <h1>把字符串转换为函数</h1>
+
+    <p id="demo4"></p>
+
+    <script>
+        var text = '{"name":"Bill Gates", "age":"function() {return 62;}", "city":"Seattle"}';
+        var obj = JSON.parse(text);
+        obj.age = eval("(" + obj.age + ")");
+        document.getElementById("demo4").innerHTML = obj.name + ", " + obj.age();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!-- 
+    class的动态绑定：
+            我们可以传给 v-bind:class 一个对象，以动态地切换 class：
+            <div v-bind:class="{ active: isActive }"></div>             active代表类名，isActive是是否开启这个类的开关
+
+            你可以在对象中传入更多字段来动态切换多个 class。（与普通类共存）
+            <div 
+            class="static" 
+            v-bind:class="{ active: isActive, 'text-danger': hasError }"></div>
+
+
+    style的动态绑定：
+
+
+ -->
+
+
+
+
+ <!-- class的动态绑定：的字典形式 -->
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div class = "test" v-bind:class="{active:isActive,mytest: istest}" >
+                你好呀
+            </div>
+        </div>
+    </body>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                isActive:true,
+                istest:true
+            }
+        });
+
+    </script>
+    <style>
+        .active{
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            background-color: green;
+            
+        }
+        .mytest{
+            font-size: 30;
+        }
+        .test{
+            color: yellow;
+        }
+    </style>
+</html>
+
+<!-- class的动态绑定：的数组形式(三元运算符) -->
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="myapp">
+            <div v-bind:class="[my1test?'my1':'',my2test?'my2':'']">测试数组形式</div>
+        </div>
+    </body>
+    <script>
+        var vm1 = new Vue({
+            el:"#myapp",
+            data:{
+                my1test:true,
+                my2test:true
+            }
+            
+        });
+    </script>
+    <style>
+        .my1{
+            background-color: yellow;
+            width: 200px;
+            height: 200px;
+        }
+        .my2{
+            color: red;
+        }
+    </style>
+</html>
+
+
+
+<!-- style的动态绑定： -->
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="ass" v-bind:style="{color:color,fontSize:size,background:isred?'red':''}">
+            你好呀
+
+        </div>
+    </body>
+    <script>
+        var vm = new Vue({
+            el:"#ass",
+            data:{
+                color:"blue",
+                size:"30",
+                isred:false
+            }
+        });
+
+    </script>
+</html>
+
+
+
+
+

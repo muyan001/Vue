@@ -1,0 +1,35 @@
+
+
+
+<html>
+    <head>
+        <script src="vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div v-if="type=='A'">
+                A
+            </div>
+            <div v-else-if="type=='B'">
+                B
+            </div>
+            <div v-else-if="type=='C'">
+                C
+            </div>
+            <div v-else>
+                not A/B/C
+            </div>
+            <h1 v-show="ok">hello</h1>
+        </div>
+        <script>
+            var vm = new Vue({
+                el:"#app",
+                data:{
+                    type:'A',
+                    ok : false
+                }
+            });
+        </script>
+
+    </body>
+</html>
